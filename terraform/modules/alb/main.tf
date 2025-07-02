@@ -2,7 +2,7 @@ resource "aws_lb" "alb" {
     name = "alb"
     load_balancer_type = "application"
     security_groups = [aws_security_group.alb_sg.id]
-
+    subnets = var.public_subnet
 }
 
 resource "aws_security_group" "alb_sg" {
@@ -26,10 +26,10 @@ resource "aws_security_group" "alb_sg" {
 }
 
 resource "aws_lb_target_group" "alb_target" {
-    name = "alb target"
+    name = "alb-target"
     port = 80
     protocol = "HTTP"
-    vpc_id = var.vpc_id.id
+    vpc_id = var.vpc_id
     target_type = "ip"
 
     health_check {

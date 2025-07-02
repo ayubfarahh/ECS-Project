@@ -9,6 +9,16 @@ output "alb_target" {
 }
 
 output "alb_listener" {
-    value = aws_lb_listener.https
+    value = aws_lb_listener.https.arn
+  
+}
+
+output "alb_dns_name" {
+    value = aws_lb.alb.dns_name
+  
+}
+
+output "alb_zone_id" {
+    value = aws_lb.alb.zone_id
   
 }

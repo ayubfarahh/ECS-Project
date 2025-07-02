@@ -3,7 +3,7 @@ output "vpc_id" {
   
 }
 
-output "public_subnets" {
+output "public_subnet" {
   value = [
     aws_subnet.public_subnet.id,
     aws_subnet.public_subnet_backup.id
