@@ -17,6 +17,13 @@ resource "aws_security_group" "alb_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress{
+    from_port = 443
+    to_port = 443
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
   egress {
     from_port = 0
     to_port = 0
@@ -48,6 +55,7 @@ resource "aws_lb_listener" "https" {
     port = 443
     protocol = "HTTPS"
     ssl_policy = "ELBSecurityPolicy-2016-08"
+    certificate_arn = "arn:aws:acm:eu-west-2:940622738555:certificate/eb546895-f952-47a6-bc30-f45f65c3d6a8"
 
 
     default_action {
