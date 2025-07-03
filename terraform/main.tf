@@ -43,6 +43,10 @@ module "iam" {
     source = "./modules/iam"
     iam_role_name = var.iam_role_name
     policy_arn = var.policy_arn
+    policy_version = var.policy_version
+    policy_effect = var.policy_effect
+    policy_service = var.policy_service
+    policy_action = var.policy_action
   
 }
 
