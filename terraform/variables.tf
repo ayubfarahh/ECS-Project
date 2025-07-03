@@ -156,3 +156,148 @@ variable "public_route_table_tag" {
     type = string
   
 }
+
+
+variable "route53_zone_name" {
+    type = string
+  
+}
+
+variable "route53_record_root_name" {
+    type = string
+  
+}
+
+variable "route53_record_type" {
+    type = string
+  
+}
+
+variable "route53_record_evaluate_target_health" {
+    type = bool
+  
+}
+
+variable "route53_record_www_name" {
+    type = string
+  
+}
+
+variable "route53_alias_name" {
+    type = string
+  
+}
+
+variable "route53_alias_zone_id" {
+    type = string
+  
+}
+
+
+variable "ecs_cluster_name" {
+    type = string
+  
+}
+
+variable "task_definition_family" {
+  type = string
+}
+
+variable "task_definition_network_mode" {
+    type = string
+  
+}
+
+variable "task_definition_requires_compatibilities" {
+    type = list(string)
+  
+}
+
+variable "task_definition_cpu" {
+    type = string
+  
+}
+
+variable "task_definition_memory" {
+    type = string
+  
+}
+
+variable "container_definitions_name" {
+  type = string
+}
+
+variable "container_definitions_image" {
+    type = string
+  
+}
+
+variable "container_definitions_port" {
+    type = number
+  
+}
+
+variable "tcp_protocol_ecs" {
+    type = string
+}
+
+variable "ecs_sg_name" {
+    type = string
+  
+}
+
+variable "ecs_sg_ingress_port" {
+    type = number
+
+  
+}
+
+variable "ecs_sg_egress_port" {
+    type = number
+  
+}
+
+variable "ecs_sg_egress_protocol" {
+    type = string
+  
+}
+
+variable "ecs_sg_egress_cidr" {
+    type = list(string)
+  
+}
+
+variable "ecs_service_name" {
+    type = string
+  
+}
+
+variable "ecs_service_launch_type" {
+    type = string
+  
+}
+
+variable "ecs_service_desired_count" {
+    type = number
+  
+}
+
+variable "ecs_service_assign_public_ip" {
+    type = bool
+  
+}
+
+variable "ecs_service_lb_container_name" {
+    type = string
+  
+}
+
+variable "ecs_service_lb_container_port" {
+    type = number
+  
+}
+
+variable "container_definitions_essential" {
+    type = bool
+  
+}

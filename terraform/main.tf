@@ -55,6 +55,30 @@ module "ecs" {
     alb_sg = module.alb.alb_sg
     alb_target = module.alb.alb_target
     alb_listener = module.alb.alb_listener
+
+    ecs_cluster_name = var.ecs_cluster_name
+    task_definition_family = var.task_definition_family
+    task_definition_network_mode = var.task_definition_network_mode
+    task_definition_requires_compatibilities = var.task_definition_requires_compatibilities
+    task_definition_cpu = var.task_definition_cpu
+    task_definition_memory = var.task_definition_memory
+    container_definitions_name = var.container_definitions_name
+    container_definitions_image = var.container_definitions_image
+    container_definitions_port = var.ecs_service_lb_container_port
+    tcp_protocol_ecs = var.tcp_protocol_ecs
+    ecs_sg_name = var.ecs_sg_name
+    ecs_sg_ingress_port = var.ecs_sg_ingress_port
+    ecs_sg_egress_port = var.ecs_sg_egress_port
+    ecs_sg_egress_protocol = var.ecs_sg_egress_protocol
+    ecs_sg_egress_cidr = var.ecs_sg_egress_cidr
+    ecs_service_name = var.ecs_service_name
+    ecs_service_launch_type = var.ecs_service_launch_type
+    ecs_service_desired_count = var.ecs_service_desired_count
+    ecs_service_assign_public_ip = var.ecs_service_assign_public_ip
+    ecs_service_lb_container_name = var.ecs_service_lb_container_name
+    ecs_service_lb_container_port = var.ecs_service_lb_container_port
+    container_definitions_essential = var.container_definitions_essential
+
     
   
 }
@@ -63,5 +87,12 @@ module "route53" {
     source = "./modules/route53"
     alb_dns_name = module.alb.alb_dns_name
     alb_zone_id = module.alb.alb_zone_id
+    route53_zone_name = var.route53_zone_name
+    route53_record_root_name = var.route53_record_root_name
+    route53_record_type = var.route53_record_type
+    route53_record_evaluate_target_health = var.route53_record_evaluate_target_health
+    route53_record_www_name = var.route53_record_www_name
+    route53_alias_name = var.route53_alias_name
+    route53_alias_zone_id = var.route53_alias_zone_id
   
 }
