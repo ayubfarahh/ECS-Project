@@ -1,5 +1,5 @@
 resource "aws_vpc" "vpc" {
-    cidr_block = "10.0.0.0/24"
+    cidr_block = var.vpc_cidr
   
 }
 
@@ -10,29 +10,29 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_subnet" "public_subnet" {
     vpc_id = aws_vpc.vpc.id
-    cidr_block = "10.0.0.0/25"
-    availability_zone = "eu-west-2a"
-    map_public_ip_on_launch = true
+    cidr_block = var.public_subnet_cidr
+    availability_zone = var.public_subnet_az
+    map_public_ip_on_launch = var.map_public_ip_on_launch
 
 }
 
 resource "aws_subnet" "public_subnet_backup" {
   vpc_id = aws_vpc.vpc.id
-  cidr_block = "10.0.0.128/26"
-  availability_zone = "eu-west-2b"
-  map_public_ip_on_launch = true
+  cidr_block = var.public_subnet_backup_cidr
+  availability_zone = var.public_subnet_backup_az
+  map_public_ip_on_launch = var.map_public_ip_on_launch
 }
 
 resource "aws_route_table" "public_route_table" {
     vpc_id = aws_vpc.vpc.id
 
     route {
-        cidr_block = "0.0.0.0/0"
+        cidr_block = var.public_route_table_cidr
         gateway_id = aws_internet_gateway.igw.id
     }
 
     tags = {
-        Name = "Public Route Table"
+        Name = var.public_route_table_tag
     }
 }
 

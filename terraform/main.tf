@@ -1,5 +1,13 @@
 module "vpc" {
     source = "./modules/vpc"
+    vpc_cidr = var.vpc_cidr
+    public_subnet_cidr = var.public_subnet_cidr
+    public_subnet_az = var.public_subnet_az
+    map_public_ip_on_launch = var.map_public_ip_on_launch
+    public_subnet_backup_cidr = var.public_subnet_backup_cidr
+    public_subnet_backup_az = var.public_subnet_backup_az
+    public_route_table_cidr = var.public_route_table_cidr
+    public_route_table_tag = var.public_route_table_tag
 }
 
 module "alb" {
@@ -12,6 +20,7 @@ module "alb" {
     http_port = var.http_port
     tcp_protocol = var.tcp_protocol
     allow_cidr = var.allow_cidr
+    http_protocol = var.http_protocol
     https_port = var.https_port
     any_port = var.any_port
     any_protocol = var.any_protocol
@@ -32,6 +41,8 @@ module "alb" {
 
 module "iam" {
     source = "./modules/iam"
+    iam_role_name = var.iam_role_name
+    policy_arn = var.policy_arn
   
 }
 

@@ -20,7 +20,7 @@ resource "aws_security_group" "alb_sg" {
     from_port = var.https_port
     to_port = var.https_port
     protocol = var.tcp_protocol
-    cidr_blocks = var.public_subnet
+    cidr_blocks = var.allow_cidr
   }
   
   egress {
