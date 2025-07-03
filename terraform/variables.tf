@@ -1,17 +1,8 @@
-variable "vpc_id" {
-    type = string
-  
-}
-
-variable "public_subnet" {
-    type = list(string)
-  
-}
-
 variable "alb_name" {
     type = string
   
 }
+
 
 variable "load_balancer_type" {
     type = string
@@ -109,6 +100,7 @@ variable "lb_listener_default_type" {
     type = string
   
 }
+
 
 variable "https_protocol" {
     type = string

@@ -1,65 +1,64 @@
 resource "aws_lb" "alb" {
-    name = "alb"
-    load_balancer_type = "application"
+    name = var.alb_name
+    load_balancer_type = var.load_balancer_type
     security_groups = [aws_security_group.alb_sg.id]
     subnets = var.public_subnet
 }
 
 resource "aws_security_group" "alb_sg" {
-    name = "alb sg"
-    description = "Allow http inbound"
+    name = var.alb_sg_name
     vpc_id = var.vpc_id
   
   ingress{
-    from_port = 80
-    to_port = 80
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port = var.http_port
+    to_port = var.http_port
+    protocol = var.tcp_protocol
+    cidr_blocks = var.allow_cidr
   }
 
   ingress{
-    from_port = 443
-    to_port = 443
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port = var.https_port
+    to_port = var.https_port
+    protocol = var.tcp_protocol
+    cidr_blocks = var.public_subnet
   }
   
   egress {
-    from_port = 0
-    to_port = 0
-    protocol = -1
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port = var.any_port
+    to_port = var.any_port
+    protocol = var.any_protocol
+    cidr_blocks = var.allow_cidr
   }
 }
 
 resource "aws_lb_target_group" "alb_target" {
-    name = "alb-target"
-    port = 80
-    protocol = "HTTP"
+    name = var.alb_target_name
+    port = var.http_port
+    protocol = var.http_protocol
     vpc_id = var.vpc_id
-    target_type = "ip"
+    target_type = var.alb_target_type
 
     health_check {
-      path = "/"
-      protocol = "HTTP"
-      matcher = "200"
-      interval = 30
-      timeout = 5
-      healthy_threshold = 2
-      unhealthy_threshold = 2
+      path = var.health_check_path
+      protocol = var.http_protocol
+      matcher = var.health_check_matcher
+      interval = var.health_check_interval
+      timeout = var.health_check_timeout
+      healthy_threshold = var.healthy_threshold
+      unhealthy_threshold = var.unhealthy_threshold
     }
 }
 
 resource "aws_lb_listener" "https" {
     load_balancer_arn = aws_lb.alb.arn
-    port = 443
-    protocol = "HTTPS"
-    ssl_policy = "ELBSecurityPolicy-2016-08"
-    certificate_arn = "arn:aws:acm:eu-west-2:940622738555:certificate/eb546895-f952-47a6-bc30-f45f65c3d6a8"
+    port = var.https_port
+    protocol = var.https_protocol
+    ssl_policy = var.ssl_policy
+    certificate_arn = var.certificate_arn
 
 
     default_action {
-      type = "forward"
+      type = var.lb_listener_default_type
       target_group_arn = aws_lb_target_group.alb_target.arn
     }
 }
