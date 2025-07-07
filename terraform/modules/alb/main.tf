@@ -4,7 +4,6 @@ resource "aws_lb" "alb" {
     security_groups = [aws_security_group.alb_sg.id]
     subnets = var.public_subnet
     enable_cross_zone_load_balancing = var.cross_zone_lb
-    enable_deletion_protection = var.cross_zone_lb
     drop_invalid_header_fields = var.cross_zone_lb
     
 }
