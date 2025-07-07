@@ -26,3 +26,17 @@ variable "policy_action" {
     type = string
   
 }
+
+variable "policy_sid" {
+    type = string
+  
+}
+
+variable "policy_service_s3" {
+    type = string
+}
+
+variable "policy_action_s3" {
+    type = string
+  
+}

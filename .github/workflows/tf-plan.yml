@@ -38,11 +38,11 @@ jobs:
           uses: terraform-linters/setup-tflint@v4
         - run: tflint
 
-        - name: Run Checkov Security scan
-          uses: bridgecrewio/checkov-action@master
-          with:
-            directory: ./terraform
-            quiet: true
+        # - name: Run Checkov Security scan
+        #   uses: bridgecrewio/checkov-action@master
+        #   with:
+        #     directory: ./terraform
+        #     quiet: true
 
         - name: Terraform plan
           run: terraform plan

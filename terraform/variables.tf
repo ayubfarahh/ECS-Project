@@ -320,3 +320,38 @@ variable "policy_action" {
     type = string
   
 }
+
+variable "cross_zone_lb" {
+    type = bool
+  
+}
+
+variable "bucket_name" {
+    type = string
+  
+}
+
+
+variable "policy_sid" {
+    type = string
+  
+}
+
+variable "policy_service_s3" {
+    type = string
+}
+
+variable "policy_action_s3" {
+    type = string
+  
+}
+
+variable "container_insights" {
+    type = string
+  
+}
+
+variable "insights_value" {
+    type = string
+  
+}

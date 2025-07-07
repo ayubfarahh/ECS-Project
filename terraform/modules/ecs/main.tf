@@ -1,5 +1,10 @@
 resource "aws_ecs_cluster" "ecs_cluster" {
     name = var.ecs_cluster_name
+   
+    setting {
+      name = var.container_insights
+      value = var.insights_value
+    }
 }
 
 resource "aws_ecs_task_definition" "ecs_task" {
@@ -31,6 +36,7 @@ resource "aws_ecs_task_definition" "ecs_task" {
 resource "aws_security_group" "ecs_sg" {
     name = var.ecs_sg_name
     vpc_id = var.vpc_id
+    description = "Allow incoming traffic from ALB"
 
     ingress{
         from_port = var.ecs_sg_ingress_port

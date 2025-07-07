@@ -36,6 +36,9 @@ module "alb" {
     certificate_arn = var.certificate_arn
     lb_listener_default_type = var.lb_listener_default_type
     https_protocol = var.https_protocol
+    cross_zone_lb = var.cross_zone_lb
+    bucket_name = var.bucket_name
+    
     
 }
 
@@ -47,6 +50,9 @@ module "iam" {
     policy_effect = var.policy_effect
     policy_service = var.policy_service
     policy_action = var.policy_action
+    policy_sid = var.policy_sid
+    policy_service_s3 = var.policy_service_s3
+    policy_action_s3 = var.policy_action_s3
   
 }
 
@@ -82,7 +88,8 @@ module "ecs" {
     ecs_service_lb_container_name = var.ecs_service_lb_container_name
     ecs_service_lb_container_port = var.ecs_service_lb_container_port
     container_definitions_essential = var.container_definitions_essential
-
+    container_insights = var.container_insights
+    insights_value = var.insights_value
     
   
 }

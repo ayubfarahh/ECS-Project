@@ -135,3 +135,13 @@ variable "container_definitions_essential" {
     type = bool
   
 }
+
+variable "container_insights" {
+    type = string
+  
+}
+
+variable "insights_value" {
+    type = string
+  
+}

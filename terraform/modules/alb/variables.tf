@@ -114,3 +114,13 @@ variable "https_protocol" {
     type = string
   
 }
+
+variable "cross_zone_lb" {
+    type = bool
+  
+}
+
+variable "bucket_name" {
+    type = string
+  
+}

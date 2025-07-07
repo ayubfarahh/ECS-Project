@@ -3,10 +3,16 @@ resource "aws_lb" "alb" {
     load_balancer_type = var.load_balancer_type
     security_groups = [aws_security_group.alb_sg.id]
     subnets = var.public_subnet
+    enable_cross_zone_load_balancing = var.cross_zone_lb
+    enable_deletion_protection = var.cross_zone_lb
+    drop_invalid_header_fields = var.cross_zone_lb
+    
 }
+
 
 resource "aws_security_group" "alb_sg" {
     name = var.alb_sg_name
+    description = "ALB SG Allow incoming HTTPS/HTTP traffic"
     vpc_id = var.vpc_id
   
   ingress{
@@ -55,7 +61,7 @@ resource "aws_lb_listener" "https" {
     protocol = var.https_protocol
     ssl_policy = var.ssl_policy
     certificate_arn = var.certificate_arn
-
+    
 
     default_action {
       type = var.lb_listener_default_type
