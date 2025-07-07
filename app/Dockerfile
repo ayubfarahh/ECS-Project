@@ -9,14 +9,12 @@ RUN yarn install
 COPY . .
 RUN yarn build
 
-Reduce the image
+# Reduce the image
 FROM node:18-alpine
 
 WORKDIR /app
 
-
 COPY --from=builder /app/build ./build
-
 
 RUN yarn global add serve
 
