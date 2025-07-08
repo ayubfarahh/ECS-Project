@@ -232,6 +232,11 @@ variable "container_definitions_image" {
   
 }
 
+variable "container_definitions_port" {
+    type = number
+  
+}
+
 variable "tcp_protocol_ecs" {
     type = string
 }
