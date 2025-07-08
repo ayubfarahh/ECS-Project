@@ -65,7 +65,7 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 └── README.md
 ```
 
-# Deployment Workflow
+## Deployment Workflow
 
 1. Terraform Plan
 
@@ -88,3 +88,25 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 4. Terraform Destroy
 
 - Destroys all infrastructure managed by Terraform when no longer required
+
+## Final Result + Github Action Workflows ✅
+
+### Live Page
+
+![alt text!](/img/website.png)
+
+### Docker Build + Deploy
+
+![alt text!](/img/build-deploy.png)
+
+### Terraform Plan
+
+![alt text!](/img/tf-plan.png)
+
+### Terraform Apply
+
+![alt text!](/img/tf-apply.png)
+
+### Terraform Destroy
+
+![alt text!](/img/tf-destroy.png)
