@@ -93,7 +93,7 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 
 ### Live Page
 
-![alt text!](/img/website.png)
+![alt text!](/img/website1.png)
 
 ### Docker Build + Deploy
 
