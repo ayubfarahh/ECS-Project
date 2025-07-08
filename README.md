@@ -13,7 +13,6 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 - Built on Amazon’s Threat Composer for effective threat modelling
 - Lightweight, multi-stage Docker build for efficient containerisation
 - Modular Terraform architecture for clean and scalable infrastructure as code
-- ECS deployment within private subnets for enhanced security
 - Public-facing HTTPS access via an Application Load Balancer and AWS Certificate Manager
 - Integrated security scanning using Trivy during the Docker image build process
 - Clearly separated CI/CD workflows for plan, apply, and destroy stages
