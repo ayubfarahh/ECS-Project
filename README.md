@@ -4,6 +4,10 @@ This project builds upon Amazon's open-source Threat Composer Tool, which stream
 
 It has been enhanced to showcase a production-ready deployment on AWS, utilizing Docker, Terraform, ECS, and GitHub Actions. The setup includes automated infrastructure provisioning, a CI/CD pipeline, and secure HTTPS access through a Load Balancer.
 
+## Architecture Diagram
+
+![alt text](/src/AWS_arc.png)
+
 ## Features
 
 - Built on Amazon’s Threat Composer for effective threat modelling
@@ -26,7 +30,7 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 │       ├── tf-destroy.yml
 │       └── tf-plan.yml
 ├── app/
-├── src/
+├── img/
 ├── terraform/
 │   ├── .terraform/
 │   ├── modules/
