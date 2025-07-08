@@ -6,7 +6,7 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 
 ## Architecture Diagram
 
-![alt text](/img/AWS_arc.png)
+![alt text!](/img/AWS_arc.png)
 
 ## Features
 
