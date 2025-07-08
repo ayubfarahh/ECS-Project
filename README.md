@@ -64,3 +64,27 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 ├── .gitignore
 └── README.md
 ```
+
+# Deployment Workflow
+
+1. Terraform Plan
+
+- Executes terraform init and terraform plan
+- Validates the configuration with TFLint
+- Conducts a security analysis using Checkov
+
+2. Terraform Apply
+
+- Applies the Terraform configuration to provision or update AWS resources
+- Includes setup of the ALB, Route 53 DNS records, and ACM certificate
+
+3. Docker Build and Push
+
+- Builds the Docker image
+- Performs a security scan using Trivy
+- Pushes the image to Amazon ECR
+- Deploys latest image to ECS
+
+4. Terraform Destroy
+
+- Destroys all infrastructure managed by Terraform when no longer required
