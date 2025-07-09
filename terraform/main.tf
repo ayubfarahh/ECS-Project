@@ -107,3 +107,9 @@ module "route53" {
     route53_alias_zone_id = var.route53_alias_zone_id
   
 }
+
+module "acm" {
+    source = "./modules/acm"
+    zone_id = module.route53.zone_id
+  
+}

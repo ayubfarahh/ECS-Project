@@ -355,3 +355,8 @@ variable "insights_value" {
     type = string
   
 }
+
+variable "zone_id" {
+    type = string
+  
+}
