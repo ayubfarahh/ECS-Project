@@ -111,5 +111,8 @@ module "route53" {
 module "acm" {
     source = "./modules/acm"
     zone_id = module.route53.zone_id
+    domain_name = var.domain_name
+    validation_method = var.validation_method
+    ttl = var.ttl
   
 }

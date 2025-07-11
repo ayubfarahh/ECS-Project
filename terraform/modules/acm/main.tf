@@ -1,6 +1,6 @@
 resource "aws_acm_certificate" "certifcate" {
-    domain_name = "ayubs.live"
-    validation_method = "DNS"
+    domain_name = var.domain_name
+    validation_method = var.validation_method
 
     lifecycle {
       create_before_destroy = true
@@ -20,7 +20,7 @@ resource "aws_route53_record" "cert_validation" {
   allow_overwrite = true
   name            = each.value.name
   records         = [each.value.record]
-  ttl             = 300
+  ttl             = var.ttl
   type            = each.value.type
   zone_id         = var.zone_id
 }
