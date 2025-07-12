@@ -38,6 +38,7 @@ module "alb" {
     https_protocol = var.https_protocol
     cross_zone_lb = var.cross_zone_lb
     bucket_name = var.bucket_name
+    acm_cert = module.acm.acm_cert
     
     
 }

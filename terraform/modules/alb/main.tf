@@ -59,7 +59,7 @@ resource "aws_lb_listener" "https" {
     port = var.https_port
     protocol = var.https_protocol
     ssl_policy = var.ssl_policy
-    certificate_arn = var.certificate_arn
+    certificate_arn = var.acm_cert
     
 
     default_action {
