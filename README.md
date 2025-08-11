@@ -65,8 +65,6 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 ```
 ## Local App Setup 💻
 
-### Run Locally Without Docker
- 
 ```
 yarn install
 yarn build
