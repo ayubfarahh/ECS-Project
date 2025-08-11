@@ -31,7 +31,7 @@ jobs:
         run: terraform init
         working-directory: ./terraform
 
-      - name: Terraform Format Check
+      - name: Terraform Format Checks
         run: terraform fmt -check
 
       - name: TFLint
