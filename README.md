@@ -63,6 +63,19 @@ It has been enhanced to showcase a production-ready deployment on AWS, utilizing
 ├── .gitignore
 └── README.md
 ```
+## Local App Setup 💻
+
+### Run Locally Without Docker
+ 
+```
+yarn install
+yarn build
+yarn global add serve
+serve -s build
+
+```
+
+Then visit: [http://localhost:3000](http://localhost:3000/)
 
 ## Deployment Workflow
 
