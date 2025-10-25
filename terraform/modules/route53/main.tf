@@ -9,7 +9,7 @@ resource "aws_route53_record" "root" {
 
     alias {
       name = var.alb_dns_name
-      zone_id = aws_route53_zone.ayub.id
+      zone_id = var.alb_zone_id
       evaluate_target_health = var.route53_record_evaluate_target_health
     }  
 }
