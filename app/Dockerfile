@@ -1,4 +1,3 @@
-# Build the app
 FROM node:18 AS builder
 
 WORKDIR /app
@@ -9,7 +8,7 @@ RUN yarn install
 COPY . .
 RUN yarn build
 
-# Reduce the image
+
 FROM node:18-alpine
 
 WORKDIR /app
